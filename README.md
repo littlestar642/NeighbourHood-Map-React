@@ -1,3 +1,9 @@
+##Project Details
+
+This App aims to use Google map with react. It was developed as a Practice Project in the Udacity Frontend nanodegree program. The app lists a predefined set of places which are put on the map and then additionally foursquare API is use to extract information about those places.
+
+The app also has a filter input that can be used to filter content based on name.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -36,6 +42,20 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Available FourSquare API functions
+
+### Search({queryObject})
+
+The search function takes in a query object and then returns a JSON of matching results. The options of query parameters can be found [here](https://developer.foursquare.com/docs/api/venues/search)
+
+### getVenueDetails(Place_id)
+
+The getVenueDetails function takes in a place_id and then returns a JSON of matching results. The options of query parameters can be found [here](https://developer.foursquare.com/docs/api/venues/details)
+
+### getVenuePhotos(Place_id)
+
+The getVenuePhotos function takes in a place_id and then returns a JSON of matching results. The options of query parameters can be found [here](https://developer.foursquare.com/docs/api/photos/details)
 
 ## Learn More
 
