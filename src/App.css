@@ -44,10 +44,4 @@
   font-size: 40px;
   font-weight: 600
 }
-@media screen and (max-width:768px){
-  .column1{
-    display: none;
-    flex:1;
-    text-align: center;
-  }
-}
+
