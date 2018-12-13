@@ -18,7 +18,11 @@ class MarkerList extends React.Component{
         })
         let location=newArr[0]['location']
         SquareAPI.search({ll:`${location.lat},${location.lng}`}).then((res)=>{
-            let popularPlacesName=res && res.response.venues.map(venue=>{
+            if(res===undefined){
+                alert('The request to API failed. Seems You are not Connected to internet')
+                return;
+            }
+            let popularPlacesName=res.response && res.response.venues.map(venue=>{
                 return {
                     "name":venue.name,
                     "id":venue.id

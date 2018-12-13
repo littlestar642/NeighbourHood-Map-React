@@ -21,7 +21,7 @@ export class MapContainer extends React.Component {
   componentDidMount=()=>{
     this.setState({markers:this.props.initials});
     window.gm_authFailure=()=>{
-      console.log('Auth Failed');
+      alert('Google Map Auth Failed. Seems Your API config is invalid')
     }
   }
   
@@ -42,6 +42,10 @@ export class MapContainer extends React.Component {
     marker.setIcon('https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png')
     marker.setAnimation(props.google.maps.Animation.BOUNCE)
     SquareAPI.search({ll:`${props.position.lat},${props.position.lng}`}).then((res)=>{
+      if(res===undefined){
+        alert('The request to API failed. Seems You are not Connected to internet')
+        return;
+    }
       let popularPlaces=res.response.venues.map(venue=>venue.name);
       this.setState({pop:popularPlaces})
     }).catch((e)=>{
@@ -70,12 +74,9 @@ export class MapContainer extends React.Component {
   }
   componentDidUpdate=()=>{
     this.global.active=null;
-    console.log(this.state.markersObject)
     let newArr=this.state.markersObject && this.state.markersObject.filter(marker=>{
-      console.log(marker);
       return (marker && marker.name)=== (this.props.markerToset && this.props.markerToset.name)
     })
-    console.log(newArr[0],this.props,this.state.markersObject);
     this.global.active=newArr[0];
     newArr[0] && newArr[0].setMap(this.state.map)
     newArr[0] && newArr[0].setAnimation(this.props.google.maps.Animation.BOUNCE)
