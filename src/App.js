@@ -86,6 +86,7 @@ class App extends Component {
     this.setState({sortedLocations:arr})
   }
   passMarker=(obj)=>{
+    console.log(this.state.activeMarker)
     this.setState({activeMarker:obj})
   }
   handleSideBar=(e)=>{
@@ -104,14 +105,14 @@ class App extends Component {
   }
   render() {
     return (
-      <div className='wrapper'>
-        <div className='column1'>
+      <div className='wrapper' aria-labelledby='Container'>
+        <div className='column1' aria-labelledby='Search Box Container'>
           <SearchBox markerSetting={this.passMarker} locations={this.state.locations} getNewArr={this.setNewArr}/>
         </div>
-        <div className='column2'>
+        <div className='column2' aria-labelledby='Map Container'>
           <div className='topBar'> <span className='heading'><i className='fas fa-angle-double-left icon1' onClick={this.handleSideBar}></i> <i className='fas fa-angle-double-right icon2' onClick={this.handleSideBar}></i>NeighbourHood Map</span> </div>
           <div className='mapContainer' role="application">
-            <MapContainer markerToset={this.state.activeMarker} locations={this.state.sortedLocations} initials={this.state.locations}/>
+            <MapContainer markerToset={this.state.activeMarker}  locations={this.state.sortedLocations} initials={this.state.locations}/>
           </div>
         </div>
       </div>

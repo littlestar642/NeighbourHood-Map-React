@@ -23,16 +23,19 @@
 }
 .markerList{
   list-style: none;
-  text-align: left
+  text-align: left;
+  padding-left:10px;
 }
 .icon1{
   float: left;
   font-size: 40px;
   display: none;
+  cursor: pointer;
 }
 .icon2{
   float: left;
   font-size: 40px;
+  cursor: pointer;
 }
 .inputBox{
   width:80%;
@@ -43,5 +46,37 @@
 .heading{
   font-size: 40px;
   font-weight: 600
+}
+
+@media screen and (max-width:768px){
+  .heading{
+    font-size: 20px;
+    font-weight: 600
+  }
+  .column1{
+    display: none;
+    flex:2;
+    text-align: center;
+  }
+  .topBar{
+    background-color: aquamarine;
+    color:black;
+    text-align: center;
+    height:40px;
+  }
+  .markerList{
+    list-style: none;
+    text-align: left;
+    padding-left:0;
+  }
+  .searchBoxHead{
+    font-size: 20px;
+  }
+  .inputBox{
+    width:90%;
+    height: 30px;
+    font-size: 20px;
+    box-shadow: 0 2px 5px rgb(168, 168, 168)
+  }
 }
 

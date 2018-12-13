@@ -36,7 +36,7 @@ class Helper {
                 urlPrams
                 )}`,
                 requestData
-                ).then(res => res.json());
+                ).then(res => res.json(),(e)=>e);
     }
 } 
 export default class SquareAPI {

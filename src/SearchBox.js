@@ -21,18 +21,19 @@ class SearchBox extends React.Component{
     }
     markerToSet=(val)=>{
         let markerSet=this.props.locations.filter((location)=>location.name===val);
+        console.log(markerSet)
         this.props.markerSetting(markerSet[0]);
     }
     render(){
         return(
             <div className='searchBox'>
                 <div className='inputField'>
-                <h1>Enter the Name to Search</h1>
+                <h1 className='searchBoxHead'>Enter the Name to Search</h1>
                 <input className='inputBox' aria-labelledby='Place Filter' type="text" value={this.state.query} onChange={this.handleInput}/>
                 </div>
                 <div>
                 <ul className='markerList'>
-                <MarkerList setMarker={this.markerToSet}  markers={this.state.markers}/>
+                <MarkerList markerSetter={this.markerToSet}  markers={this.state.markers}/>
                 </ul>
                 </div>
             </div>
